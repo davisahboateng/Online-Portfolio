@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f7f6;
+  color: #333;
+  text-align: center;
+}
+
+header, section, footer {
+  background: white;
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+/* Apply a clean font and a modern dark background to the whole page */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a2e; /* Sleek dark blue */
+  color: #e2e8f0; /* Crisp off-white text */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Make headings pop with color and bold weight */
+h1 {
+  font-size: 3rem;
+  color: #00fff0; /* Vibrant neon cyan */
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: #ff007f; /* Electric pink for sections */
+  border-bottom: 2px solid #334155;
+  padding-bottom: 8px;
+  margin-top: 40px;
+}
+
+/* Style paragraphs for comfortable reading */
+p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
