@@ -1,46 +1,305 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f7f6;
-  color: #333;
-  text-align: center;
-}
-
-header, section, footer {
-  background: white;
-  margin: 20px auto;
-  padding: 30px;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-/* Apply a clean font and a modern dark background to the whole page */
+/* ==========================================================================
+   GLOBAL RULES & DESKTOP VIEWPORT (Laptops & Monitors)
+   ========================================================================== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1a1a2e; /* Sleek dark blue */
-  color: #e2e8f0; /* Crisp off-white text */
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  background-color: #1a1a2e; /* Sleek dark blue theme */
+  color: #e2e8f0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Make headings pop with color and bold weight */
-h1 {
-  font-size: 3rem;
-  color: #00fff0; /* Vibrant neon cyan */
-  margin-bottom: 5px;
+/* Horizontal center-aligned menu bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #111122;
 }
 
-h2 {
-  color: #ff007f; /* Electric pink for sections */
-  border-bottom: 2px solid #334155;
-  padding-bottom: 8px;
-  margin-top: 40px;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style paragraphs for comfortable reading */
-p {
-  line-height: 1.6;
+.nav-links a {
+  color: #a0aec0;
+  text-decoration: none;
   font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a.active, .nav-links a:hover {
+  color: #00fff0; /* Your signature neon cyan accent color */
+  font-weight: bold;
+}
+
+/* Base Page Padding */
+.page-content {
+  max-width: 1000px; /* Constrains layout so it doesn't get stretched too wide on big monitors */
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+/* Centered Typography */
+.page-title {
+  font-size: 2.8rem;
+  color: #ff007f; /* Electric pink */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.page-subtitle {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px auto;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+/* Desktop Grid: 3 Clean Columns Wide */
+.image-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 side-by-side squares */
+  gap: 30px;
+}
+
+/* Dashboard Placeholder Visual Structure */
+.placeholder-box {
+  width: 100%;
+  height: 250px;
+  background-color: #22223b;
+  border: 2px dashed #4a5568;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0aec0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.placeholder-box:hover {
+  transform: translateY(-5px);
+  border-color: #00fff0;
+}
+
+
+/* ==========================================================================
+   IPAD & TABLET VIEWPORT (Triggers below 900px wide screen scales)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .page-title {
+    font-size: 2.4rem;
+  }
+  
+  /* iPad Matrix Shift: Changes from 3 columns to 2 columns so cards don't squish */
+  .image-gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* Exactly 2 cards per row */
+    gap: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE PHONE VIEWPORT (Triggers below 600px wide phone scales)
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Compresses structural blank padding so you don't lose space on small glass screens */
+  .navbar {
+    padding: 15px 10px;
+  }
+  
+  /* Squeezes link text closer together so menu items don't overflow off the phone edge */
+  .nav-links {
+    gap: 15px; 
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  .page-content {
+    padding: 40px 20px; /* Thinner border padding for phones */
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    margin-bottom: 35px;
+  }
+
+  /* Phone Stack Shift: Snaps to exactly 1 full-width row per image */
+  .image-gallery-grid {
+    grid-template-columns: 1fr; /* 1 vertical column down the viewport screen */
+    gap: 20px;
+  }
+
+  .placeholder-box {
+    height: 210px; /* Slightly shorter box profile perfect for mobile thumb browsing */
+  }
+}
+/* ==========================================================================
+   HOMEPAGE LAYOUT SPECIFIC FIXES (Restores your split screen)
+   ========================================================================== */
+
+/* 1. Sets up the full screen grid wrapper for home content */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh; /* Fills up the screen depth beautifully */
+  padding: 0 10%; /* Creates clean side cushions */
+  gap: 50px; /* Spaces your text column away from your picture column */
+}
+
+/* 2. Text layout alignment properties */
+.hero-text {
+  flex: 1;
+  text-align: left; /* Snaps text cleanly back to the left alignment */
+}
+
+.hero-text h1 {
+  font-size: 3.5rem; /* Large, punchy font size scale */
+  font-weight: bold;
+  color: #ffffff; /* Crisp premium white writing */
+  margin: 0 0 10px 0;
+}
+
+.hero-text .subtitle {
+  font-size: 1.3rem;
+  color: #cbd5e1; /* Smooth grey tone subtext layer */
+  margin: 0;
+}
+
+/* 3. Image container alignment properties */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Pushes your picture cleanly over to the right side */
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 380px; /* Locks your picture to a perfect display dimension */
+  height: auto;
+  border-radius: 12px; /* Restores the smooth professional rounded borders */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Premium soft depth shadow drop */
+}
+
+/* 4. Responsive adjustments so the homepage split also looks good on phones */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column; /* Stacks text over image vertically on phone screens */
+    text-align: center;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+  
+  .hero-text {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-image {
+    justify-content: center; /* Centers your portrait on handheld glass viewports */
+  }
+  
+  .hero-image img {
+    max-width: 280px;
+  }
+}
+/* ==========================================================================
+   CONTACT PAGE FORM LAYOUT
+   ========================================================================== */
+
+/* Centers the form box on the dark background canvas */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #111122; /* Sleek contrasting card background */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Graphic alignment styling for labels */
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #a0aec0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Inputs and Message boxes styling */
+.form-group input, 
+.form-group textarea {
+  background-color: #1a1a2e;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+/* Interactive focus glow effect when a user clicks to type */
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #00fff0; /* Your signature neon cyan highlight edge */
+}
+
+/* Premium submit button alignment properties */
+.submit-btn {
+  background-color: #ff007f; /* Electric pink to draw attention */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%; /* Spreads button fully across the form container width */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e0006c;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS OVERRIDE FOR FORM
+   ========================================================================== */
+@media (max-width: 600px) {
+  .contact-container {
+    padding: 25px 20px; /* Thinner border gutters for phone glass viewports */
+  }
 }
