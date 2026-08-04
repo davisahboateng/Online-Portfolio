@@ -303,3 +303,38 @@ body {
     padding: 25px 20px; /* Thinner border gutters for phone glass viewports */
   }
 }
+/* This styles the image tags inside your boxes */
+.project-img {
+    width: 100%;          /* Forces the image to match the box width exactly */
+    height: 100%;         /* Forces the image to match the box height exactly */
+    object-fit: cover;    /* Crops the image to fit the box perfectly without distortion */
+    display: block;       /* Removes unwanted white gaps beneath the image */
+    border-radius: 8px;   /* Optional: gives your images rounded corners to match the boxes */
+}
+
+/* Ensure your gallery-item containers have a locked height if they don't already */
+.gallery-item {
+    height: 250px;        /* Adjust this number to make the boxes taller or shorter */
+    overflow: hidden;     /* Prevents any oversized images from spilling out */
+}
+/* Locate your section wrappers or container classes */
+.page-content, .about-section, .contact-section {
+    /* ❌ DELETE THIS LINE IF YOU HAVE IT: height: 100vh; or height: 800px; */
+    
+    /*  ADD THESE TWO LINES INSTEAD: */
+    min-height: 100vh;    /* Takes up the full laptop viewport as a minimum fallback */
+    height: auto;         /* Forces the box to shrink or grow dynamically with the content */
+    
+    padding-bottom: 40px; /* Optional: adds a nice, intentional safety gap at the bottom */
+}
+/* 📱 GLOBAL MOBILE FIX: Forces all pages to wrap tightly on phones */
+@media (max-width: 768px) {
+  main, 
+  .page-content, 
+  section, 
+  .image-gallery-grid {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding-bottom: 60px !important;
+  }
+}
