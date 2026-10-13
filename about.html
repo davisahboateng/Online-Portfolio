@@ -8,16 +8,20 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Me</a></li>
+    <nav class="navbar">  
+    <!-- Put this inside your navigation bar area -->
+        <button class="hamburger" id="hamburger-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
             <li><a href="projects.html">My Projects</a></li>
             <li><a href="contact.html">Contact Me</a></li>
         </ul>
     </nav>
-
     <!-- About Page Content Layout -->
     <main class="page-content">
         <h2>About Me</h2>
@@ -28,6 +32,6 @@
             <img src="images/project.jpg" alt="Click here to view my project" width="300" style="border-radius: 8px; margin-top: 20px;">
         </a>
     </main>
-
+   <script src="script.js"></script>
 </body>
 </html>

@@ -114,23 +114,73 @@ body {
 /* ==========================================================================
    MOBILE PHONE VIEWPORT (Triggers below 600px wide phone scales)
    ========================================================================== */
+/* ==========================================================================
+   MOBILE PHONE VIEWPORT (Triggers below 600px wide phone scales)
+   ========================================================================== */
 @media (max-width: 600px) {
-  /* Compresses structural blank padding so you don't lose space on small glass screens */
+  
   .navbar {
-    padding: 15px 10px;
+    display: flex;
+    justify-content: flex-end; /* Pushes hamburger bars cleanly over to the right edge */
+    align-items: center;
+    padding: 15px 25px;
+    position: relative;
   }
-  
-  /* Squeezes link text closer together so menu items don't overflow off the phone edge */
+
+  /* Force icon container to change states on mobile layout shapes */
+  .hamburger {
+    display: flex !important; 
+    cursor: pointer;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 100;
+    padding: 5px;
+  }
+
+  /* Draw explicit layout configurations for individual bars */
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+  }
+
+  /* Shifts links out of horizontal display line into a absolute panel block */
   .nav-links {
-    gap: 15px; 
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #111122; 
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 99;
+    border-bottom: 2px solid #00fff0; 
   }
-  
+
+  .nav-links li {
+    padding: 15px 0;
+  }
+
   .nav-links a {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    display: block;
+    width: 100%;
+  }
+
+  /* Drop down interface display rule state applied dynamically by your script */
+  .nav-links.open {
+    display: flex;
   }
 
   .page-content {
-    padding: 40px 20px; /* Thinner border padding for phones */
+    padding: 40px 20px;
   }
 
   .page-title {
@@ -142,16 +192,16 @@ body {
     margin-bottom: 35px;
   }
 
-  /* Phone Stack Shift: Snaps to exactly 1 full-width row per image */
   .image-gallery-grid {
-    grid-template-columns: 1fr; /* 1 vertical column down the viewport screen */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .placeholder-box {
-    height: 210px; /* Slightly shorter box profile perfect for mobile thumb browsing */
+    height: 210px;
   }
 }
+
 /* ==========================================================================
    HOMEPAGE LAYOUT SPECIFIC FIXES (Restores your split screen)
    ========================================================================== */
@@ -336,5 +386,109 @@ body {
     height: auto !important;
     min-height: 100vh !important;
     padding-bottom: 60px !important;
+  }
+}
+/* 1. Base Styles for the Hamburger Button (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff; /* Matches your white text */
+  border-radius: 2px;
+}
+
+/* 2. Responsive Mobile Styles (Triggered under 768px wide) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Shows the hamburger lines on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hides the standard horizontal row layout */
+    position: absolute;
+    top: 60px; /* Adjust this to match the height of your nav bar */
+    left: 0;
+    width: 100%;
+    background-color: #121620; /* Matches your dark portfolio background color */
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+  }
+
+  /* 3. The Toggle Rule: When JS drops the 'open' class, show the menu */
+  .nav-links.open {
+    display: flex;
+  }
+}
+/* --- FIXED MOBILE STYLES --- */
+@media (max-width: 768px) {
+  
+  /* Make sure the navbar behaves as a container and pushes elements to the sides */
+  .navbar {
+    display: flex;
+    justify-content: flex-end; /* Pushes the hamburger button to the right side */
+    align-items: center;
+    padding: 15px 20px;
+    position: relative; /* Essential for alignment */
+    min-height: 50px;
+  }
+
+  /* Force the hamburger button to display as a flex block with width/height */
+  .hamburger {
+    display: flex !important; /* Forces it to show up on mobile screens */
+    cursor: pointer;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 100; /* Makes sure it sits on top of everything else */
+  }
+
+  /* Style the actual 3 white lines inside the button */
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff; /* Explicitly makes the lines solid white */
+  }
+
+  /* Hide the vertical link stack off-screen by default until toggled */
+  .nav-links {
+    display: none; 
+    position: absolute;
+    top: 100%; /* Drops it cleanly right below the nav bar row */
+    left: 0;
+    width: 100%;
+    background-color: #121620; /* Matches your dark background */
+    flex-direction: column;
+    gap: 0;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links li {
+    padding: 12px 0;
+  }
+
+  /* When your JavaScript drops the 'open' class on the menu, show it! */
+  .nav-links.open {
+    display: flex;
   }
 }
