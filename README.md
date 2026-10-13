@@ -1,4 +1,4 @@
-# Personal Online Portfolio
+# Online Portfolio
 
 ## 👤 About the Author & Developer
 Welcome to my personal front-end development portfolio! 
