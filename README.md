@@ -1,4 +1,4 @@
-# Online Portfolio
+# Personal Online Portfolio
 
 ## 👤 About the Author & Developer
 Welcome to my personal front-end development portfolio! 
@@ -13,6 +13,22 @@ Throughout my **Percipio learning journey**, I have completed an immense amount 
 ### 🎨 My Creative Philosophy
 I love leveraging CSS to transform clean code into beautiful layouts, deliberate typography, and engaging colour palettes. This portfolio directly reflects my creative flair, focusing heavily on building highly intuitive, responsive, and user-friendly web spaces.
 
+---
+## Features
+Summarise the responsive nav bar
+Include screenshots
+
+---
+## Testing
+Testing:
+Make sure to run your code through code validation & quality tools for example:
+z HTML - https://validator.w3.org/#validate_by_input
+z CSS - http://jigsaw.w3.org/css-validator/
+z Document all errors and warnings found, make sure you document your process of 
+fixing these errors. 
+---
+## Accessibility
+Complete the light house report
 ---
 
 ## 📁 Repository & Code Architecture
